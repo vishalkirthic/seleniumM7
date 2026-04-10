@@ -26,7 +26,7 @@ jobs:
         run: |
           cd test_
           mkdir -p reports
-          pytest test_login.py --browser=chrome --html=reports/report.html
+          pytest test_login.py --html=reports/report.html
 
       # - name: Set output path
       #   if: success() || failure()
