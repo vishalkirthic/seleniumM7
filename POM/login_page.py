@@ -14,7 +14,7 @@ from Library.sel_wrapper import SeleniumWrapper
 # driver.get("https://demowebshop.tricentis.com/login")
 # driver.maximize_window()
 
-login_objects = reading_objects.read_locator()
+login_objects = reading_objects.read_locator("locators_data")
 
 
 
