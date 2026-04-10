@@ -16,7 +16,7 @@ file_path = os.path.join(BASE_DIR, "data", "reg_data.xlsx")
 # reg_path = r"C:\Users\Vishal Kirthic\PycharmProjects\framework_seleniumM7\data\reg_data.xlsx"
 
 def read_reg():
-    workbook = xlrd.open_workbook(reg_path)
+    workbook = xlrd.open_workbook(file_path)
     worksheet = workbook.sheet_by_name("reg_details")
     rows = worksheet.get_rows()
     print(rows)
