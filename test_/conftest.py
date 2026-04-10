@@ -1,28 +1,41 @@
-# to share the common codes
-from selenium import webdriver
 import pytest
-import time
+from selenium import webdriver
+
 
 @pytest.fixture()
 def _driver():
+
     opts = webdriver.ChromeOptions()
-    opts.add_experimental_option("detach", True)
+
+    opts.add_argument("--headless=new")
+    opts.add_argument("--no-sandbox")
+    opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=opts)
-    driver.get("https://demowebshop.tricentis.com/login")
-    driver.maximize_window()
-    yield driver
-    driver.quit()
 
+    driver.maximize_window()
+
+    yield driver
+
+    driver.quit()
+    
 @pytest.fixture()
 def Reg_driver():
+
     opts = webdriver.ChromeOptions()
-    opts.add_experimental_option("detach", True)
+
+    opts.add_argument("--headless=new")
+    opts.add_argument("--no-sandbox")
+    opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--window-size=1920,1080")
+
     driver = webdriver.Chrome(options=opts)
-    driver.get("https://demowebshop.tricentis.com/register")
+
     driver.maximize_window()
+
     yield driver
-    time.sleep(5)
+
     driver.quit()
 
 """
