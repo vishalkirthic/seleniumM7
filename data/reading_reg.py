@@ -9,7 +9,11 @@ txt_lname: ('id', 'LastName')
 """
 
 import xlrd
-reg_path = r"C:\Users\Vishal Kirthic\PycharmProjects\framework_seleniumM7\data\reg_data.xlsx"
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+file_path = os.path.join(BASE_DIR, "data", "reg_data.xlsx")
+# reg_path = r"C:\Users\Vishal Kirthic\PycharmProjects\framework_seleniumM7\data\reg_data.xlsx"
 
 def read_reg():
     workbook = xlrd.open_workbook(reg_path)
