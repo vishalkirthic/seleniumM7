@@ -28,14 +28,14 @@ jobs:
           mkdir -p reports
           pytest test_login.py --browser=chrome --html=reports/report.html
 
-      - name: Set output path
-        if: success() || failure()
-        id: results
-        run: echo "artifactPath=test_/reports/" >> $GITHUB_OUTPUT
+      # - name: Set output path
+      #   if: success() || failure()
+      #   id: results
+      #   run: echo "artifactPath=test_/reports/" >> $GITHUB_OUTPUT
 
-      - name: Upload test report
-        uses: actions/upload-artifact@v3
-        if: success() || failure()
-        with:
-          name: test-report
-          path: ${{ steps.results.outputs.artifactPath }}
+      # - name: Upload test report
+      #   uses: actions/upload-artifact@v3
+      #   if: success() || failure()
+      #   with:
+      #     name: test-report
+      #     path: ${{ steps.results.outputs.artifactPath }}
