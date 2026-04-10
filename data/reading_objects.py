@@ -15,6 +15,3 @@ def read_locator(page_name):
     return {row[0].value: (row[1].value, row[2].value) for row in rows}
 
 
-print(read_locator())
-
-
