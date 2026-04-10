@@ -15,7 +15,7 @@ def _driver():
     driver = webdriver.Chrome(options=opts)
 
     driver.maximize_window()
-
+    driver.get("https://demowebshop.tricentis.com/login")
     yield driver
 
     driver.quit()
@@ -31,9 +31,9 @@ def Reg_driver():
     opts.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=opts)
-
+    
     driver.maximize_window()
-
+    driver.get("https://demowebshop.tricentis.com/register")
     yield driver
 
     driver.quit()
