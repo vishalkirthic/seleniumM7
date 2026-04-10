@@ -4,9 +4,11 @@ on: [push]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -26,16 +28,11 @@ jobs:
         run: |
           cd test_
           mkdir -p reports
-          pytest test_login.py --html=reports/report.html
+          pytest test_login.py --html=reports/report.html --self-contained-html
 
-      # - name: Set output path
-      #   if: success() || failure()
-      #   id: results
-      #   run: echo "artifactPath=test_/reports/" >> $GITHUB_OUTPUT
-
-      # - name: Upload test report
-      #   uses: actions/upload-artifact@v3
-      #   if: success() || failure()
-      #   with:
-      #     name: test-report
-      #     path: ${{ steps.results.outputs.artifactPath }}
+      - name: Upload Test Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: test_/reports/
